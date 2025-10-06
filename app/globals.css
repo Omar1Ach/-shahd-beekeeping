@@ -1,26 +1,124 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  /* Honey-inspired light theme */
+  --background: 48 100% 96%;  /* Soft cream #FFFBEB */
+  --foreground: 218 25% 15%;  /* Bee black #1F2937 */
+  --card: 48 100% 98%;
+  --card-foreground: 218 25% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 218 25% 15%;
+  --primary: 43 96% 56%;  /* Honey gold #F59E0B */
+  --primary-foreground: 218 25% 15%;
+  --secondary: 158 64% 52%;  /* Forest green #10B981 */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 48 80% 92%;  /* Light honey #FEF3C7 */
+  --muted-foreground: 218 15% 45%;
+  --accent: 43 96% 56%;  /* Honey accent */
+  --accent-foreground: 218 25% 15%;
+  --destructive: 0 84% 60%;
+  --border: 43 50% 88%;
+  --input: 43 50% 88%;
+  --ring: 43 96% 56%;
+  --chart-1: 43 96% 56%;  /* Honey gold */
+  --chart-2: 158 64% 52%;  /* Forest green */
+  --chart-3: 36 100% 70%;  /* Light amber */
+  --chart-4: 166 76% 37%;  /* Deep green */
+  --chart-5: 45 93% 47%;  /* Deep amber */
+  --sidebar: 48 90% 94%;  /* Soft ivory */
+  --sidebar-foreground: 218 25% 15%;
+  --sidebar-primary: 43 96% 56%;
+  --sidebar-primary-foreground: 218 25% 15%;
+  --sidebar-accent: 43 96% 90%;
+  --sidebar-accent-foreground: 218 25% 15%;
+  --sidebar-border: 43 50% 88%;
+  --sidebar-ring: 43 96% 56%;
+}
+
+.dark {
+  /* Dark honey theme */
+  --background: 218 25% 10%;  /* Dark bee black */
+  --foreground: 48 100% 96%;
+  --card: 218 20% 15%;
+  --card-foreground: 48 100% 96%;
+  --popover: 218 25% 12%;
+  --popover-foreground: 48 100% 96%;
+  --primary: 43 96% 56%;  /* Honey gold stays vibrant */
+  --primary-foreground: 218 25% 10%;
+  --secondary: 158 64% 52%;  /* Forest green */
+  --secondary-foreground: 218 25% 10%;
+  --muted: 218 15% 20%;
+  --muted-foreground: 48 50% 70%;
+  --accent: 43 96% 56%;
+  --accent-foreground: 218 25% 10%;
+  --destructive: 0 84% 60%;
+  --border: 218 20% 25%;
+  --input: 218 20% 25%;
+  --ring: 43 96% 56%;
+  --chart-1: 43 96% 56%;
+  --chart-2: 158 64% 52%;
+  --chart-3: 36 100% 70%;
+  --chart-4: 166 76% 37%;
+  --chart-5: 45 93% 47%;
+  --sidebar: 218 25% 12%;
+  --sidebar-foreground: 48 100% 96%;
+  --sidebar-primary: 43 96% 56%;
+  --sidebar-primary-foreground: 218 25% 10%;
+  --sidebar-accent: 218 20% 20%;
+  --sidebar-accent-foreground: 48 100% 96%;
+  --sidebar-border: 218 20% 25%;
+  --sidebar-ring: 43 96% 56%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
